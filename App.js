@@ -1,14 +1,24 @@
-import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {View, Button, TextInput} from 'react-native';
 import Tts from 'react-native-tts';
 
 export default function App() {
-  useEffect(() => {
-    Tts.speak('Hello, world ! this is a text to speech Test');
-  }, []);
+  const [Textinit, setTextinit] = useState('');
   return (
     <View>
-      <Text>CHATBOT</Text>
+      <TextInput
+        value={Textinit}
+        onChangeText={(value) => {
+          setTextinit(value);
+        }}
+        placeholder={'input text to transfer it to speech'}
+      />
+      <Button
+        title={'Speech'}
+        onPress={() => {
+          Tts.speak(Textinit);
+        }}
+      />
     </View>
   );
 }
