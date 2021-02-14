@@ -9,9 +9,9 @@ export default function App() {
   return (
     <View
       style={{
-        justifyContent: 'center',
         flex: 1,
         // alignItems: 'center',
+        // backgroundColor: 'grey',
       }}>
       {/* //animation */}
       <View
