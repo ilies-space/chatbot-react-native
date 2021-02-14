@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Button, TextInput} from 'react-native';
 import Tts from 'react-native-tts';
 import LottieView from 'lottie-react-native';
+import {Example} from './app/ChatComponent';
 
 export default function App() {
   const [Textinit, setTextinit] = useState('');
@@ -9,6 +10,7 @@ export default function App() {
     <View
       style={{
         justifyContent: 'center',
+        flex: 1,
         // alignItems: 'center',
       }}>
       {/* //animation */}
@@ -18,22 +20,11 @@ export default function App() {
           width: '100%',
           alignItems: 'center',
         }}>
-        <LottieView source={require('./asset/siriLoader.json')} autoPlay loop />
+        <LottieView source={require('./asset/siriLoader.json')} />
       </View>
 
-      <TextInput
-        value={Textinit}
-        onChangeText={(value) => {
-          setTextinit(value);
-        }}
-        placeholder={'input text to transfer it to speech'}
-      />
-      <Button
-        title={'Speech'}
-        onPress={() => {
-          Tts.speak(Textinit);
-        }}
-      />
+      {/* CHAT VIEW  */}
+      <Example />
     </View>
   );
 }
